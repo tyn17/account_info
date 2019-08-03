@@ -17,7 +17,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -50,6 +49,12 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Text(this._accountIds == null ? 'Unknow' : 'Data: ${this._accountIds}\n'),
         ),
+        floatingActionButton: FloatingActionButton(
+          child: Text('Click me'),
+          onPressed: () {
+            initPlatformState();
+          }
+        )
       ),
     );
   }
