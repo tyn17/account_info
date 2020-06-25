@@ -8,7 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  carousel_pro:
+  account_info:
     git:
       url: git://github.com/tyn17/account_info.git
       ref: master
