@@ -20,22 +20,15 @@ class _MyAppState extends State<MyApp> {
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    dynamic accountIds;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      accountIds = await AccountInfo.getAccountIds;
-    } on PlatformException {
-      accountIds = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _accountIds = accountIds;
+  void getAccounts() {
+    AccountInfo.getAccountIds.then((res) {
+      setState(() {
+        _accountIds = res.toString();
+      });
+    }).catchError((err) {
+      setState(() {
+        _accountIds = "Error. " + err.toString();
+      });
     });
   }
 
@@ -52,7 +45,7 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           child: Text('Click me'),
           onPressed: () {
-            initPlatformState();
+            getAccounts();
           }
         )
       ),

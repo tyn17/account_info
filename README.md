@@ -3,12 +3,25 @@
 A flutter plugin to get Account information is logged-in on the device.
 
 ## Getting Started
+```
+dependencies:
+  flutter:
+    sdk: flutter
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+  carousel_pro:
+    git:
+      url: git://github.com/tyn17/account_info.git
+      ref: master
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```
+AccountInfo.getAccountIds.then((res) {
+  setState(() {
+    _accountIds = res.toString();
+  });
+}).catchError((err) {
+  setState(() {
+    _accountIds = "Error. " + err.toString();
+  });
+});
+```
