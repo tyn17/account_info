@@ -11,7 +11,7 @@ dependencies:
   account_info:
     git:
       url: git://github.com/tyn17/account_info.git
-      ref: master
+      ref: v_1_0
 ```
 
 ```
