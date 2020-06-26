@@ -1,5 +1,5 @@
 group 'com.seasolutions.accountinfo'
-version '1.0-SNAPSHOT'
+version '1.0'
 buildscript {
     repositories {
         google()
